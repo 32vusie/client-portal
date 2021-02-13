@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:system32online_portal/helpers/checkParsedLink.dart';
 import 'package:system32online_portal/helpers/helpSys.dart';
 import 'package:system32online_portal/navigations/bottomNavigation.dart';
 import 'package:system32online_portal/navigations/drawer.dart';
@@ -10,7 +11,8 @@ class EmailsPortal extends StatefulWidget {
   EmailsPortalState createState() => EmailsPortalState();
 }
 
-class EmailsPortalState extends State<EmailsPortal> {
+class EmailsPortalState extends State<EmailsPortal>
+    with AutomaticKeepAliveClientMixin {
   num position = 1;
   Logger logger = Logger();
 
@@ -22,14 +24,20 @@ class EmailsPortalState extends State<EmailsPortal> {
     });
   }
 
-  startLoading(String A){
-    if(A != Links.emailLink){
-        Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(builder: (context) => new LoginPortal()));
+  startLoading(String A) {
+    if (!A.startsWith(Links.emailLink)) {
+      Navigator.of(context, rootNavigator: true)
+          .push(MaterialPageRoute(builder: (context) => new BottomNav()));
     }
+    // checkPageLink(A);
+    setState(() {
+      position = 1;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
         appBar: AppBar(title: Text('Emails')),
         drawer: NavigationDrawer(),
@@ -38,11 +46,11 @@ class EmailsPortalState extends State<EmailsPortal> {
             initialUrl: Links.emailLink,
             javascriptMode: JavascriptMode.unrestricted,
             key: key,
-            onPageFinished: doneLoading,
             onPageStarted: startLoading,
+            onPageFinished: doneLoading,
             // navigationDelegate: (action) {
             //   logger.i(action.url);
-            //   if (action.url == Links.emailLink) {
+            //   if (action.url.startsWith(Links.emailLink)) {
             //     return NavigationDecision.navigate;
             //   } else {
             //     // pr.show();
@@ -57,4 +65,6 @@ class EmailsPortalState extends State<EmailsPortal> {
           ),
         ]));
   }
+
+  bool get wantKeepAlive => true;
 }

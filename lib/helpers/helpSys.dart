@@ -24,6 +24,8 @@ class Strings {
 class Links {
   static var homeLink = CoreMain.mainLink;
   static var orderLink = CoreMain.mainLink + "/order";
+  static var activeOrdersLink = CoreMain.mainLink + "/order/service";
+  static var manageOrdersLink = CoreMain.mainLink + "/order/service/manage/";
   static var invoiceLink = CoreMain.mainLink + "/invoice";
   static var knowlageLink = CoreMain.mainLink + "/kb";
   static var supportLink = CoreMain.mainLink + "/support";
@@ -39,7 +41,7 @@ class Links {
 }
 
 class EmbedIframes {
-   static var loginForm = Uri.dataFromString(
+  static var loginForm = Uri.dataFromString(
           '<iframe width="" height="100%" src="https://clientzone.system32online.co.za/embed/loginform" frameborder="0"></iframe>',
           mimeType: 'text/html')
       .toString();

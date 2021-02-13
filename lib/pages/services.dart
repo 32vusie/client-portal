@@ -10,7 +10,8 @@ class ServicePortal2 extends StatefulWidget {
   ServicePortal2State createState() => ServicePortal2State();
 }
 
-class ServicePortal2State extends State<ServicePortal2> {
+class ServicePortal2State extends State<ServicePortal2>
+    with AutomaticKeepAliveClientMixin {
   num position = 1;
   Logger logger = Logger();
 
@@ -22,14 +23,16 @@ class ServicePortal2State extends State<ServicePortal2> {
     });
   }
 
-  startLoading(String A){
-    if(A != Links.orderLink){
-        Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(builder: (context) => new LoginPortal()));
+  startLoading(String A) {
+    if (A != Links.orderLink) {
+      Navigator.of(context, rootNavigator: true)
+          .push(MaterialPageRoute(builder: (context) => new LoginPortal()));
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
         appBar: AppBar(title: Text('Products')),
         drawer: NavigationDrawer(),
@@ -47,4 +50,6 @@ class ServicePortal2State extends State<ServicePortal2> {
           ),
         ]));
   }
+   @override
+  bool get wantKeepAlive => true;
 }

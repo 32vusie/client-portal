@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:system32online_portal/helpers/helpSys.dart';
+import 'package:system32online_portal/pages/services.dart';
 import 'package:system32online_portal/webview_container/webview_container.dart';
 
 class HomePortal2 extends StatelessWidget {
@@ -29,13 +31,18 @@ class HomePortal2 extends StatelessWidget {
               Row(
                 children: <Widget>[
                   new Expanded(
-                      child: Padding(
-                    padding: const EdgeInsets.only(right: 5.0),
+                      child: FlatButton(
+                    padding: const EdgeInsets.only(right: 5.0, left: 5.0),
+                    
+                    color: Color(0xFFFD7384),
+                    onPressed: () {
+                      _handleURLButtonPress(context, Links.activeOrdersLink);
+                    },
                     child: new Container(
                       height: 100.0,
                       decoration: new BoxDecoration(
                           borderRadius: new BorderRadius.circular(2.0),
-                          color: Color(0xFFFD7384)),
+                          ),
                       child: new Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -55,9 +62,12 @@ class HomePortal2 extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         Expanded(
-                          child: Padding(
+                          child: FlatButton(
                             padding:
                                 const EdgeInsets.only(bottom: 2.5, right: 2.5),
+                            onPressed: () { 
+                              _handleURLButtonPress(context, Links.invoiceLink);
+                             },
                             child: new Container(
                               decoration: new BoxDecoration(
                                   color: Color(0XFF2BD093),
@@ -80,9 +90,12 @@ class HomePortal2 extends StatelessWidget {
                           ),
                         ),
                         Expanded(
-                          child: Padding(
+                          child: FlatButton(
                             padding:
                                 const EdgeInsets.only(top: 2.5, right: 2.5),
+                            onPressed: () { 
+                              _handleURLButtonPress(context, Links.activeOrdersLink);
+                             },
                             child: new Container(
                               decoration: new BoxDecoration(
                                   color: Color(0XFFFC7B4D),
@@ -113,9 +126,12 @@ class HomePortal2 extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         Expanded(
-                          child: Padding(
+                          child: FlatButton(
                             padding:
                                 const EdgeInsets.only(left: 2.5, bottom: 2.5),
+                            onPressed: () { 
+
+                             },
                             child: new Container(
                               decoration: new BoxDecoration(
                                   color: Color(0XFF53CEDB),
@@ -291,8 +307,7 @@ class HomePortal2 extends StatelessWidget {
                             decoration: new BoxDecoration(
                                 borderRadius: new BorderRadius.circular(5.0),
                                 image: new DecorationImage(
-                                    image: new AssetImage(
-                                        'assets/promo.jpg'),
+                                    image: new AssetImage('assets/promo.jpg'),
                                     fit: BoxFit.cover)),
                           ),
                           new Text(
@@ -315,6 +330,7 @@ class HomePortal2 extends StatelessWidget {
       ],
     );
   }
+
   void _handleURLButtonPress(BuildContext context, String url) {
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => WebViewContainer(url)));
