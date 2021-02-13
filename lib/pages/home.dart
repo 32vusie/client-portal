@@ -31,88 +31,99 @@ class HomePortal2 extends StatelessWidget {
               Row(
                 children: <Widget>[
                   new Expanded(
-                      child: FlatButton(
-                    padding: const EdgeInsets.only(right: 5.0, left: 5.0),
+                      child: Padding(
+                        padding: const EdgeInsets.all(1.0),
+                        child: FlatButton(
+                    padding: const EdgeInsets.only(right: 5.0),
                     
                     color: Color(0xFFFD7384),
                     onPressed: () {
-                      _handleURLButtonPress(context, Links.activeOrdersLink);
+                        _handleURLButtonPress(context, Links.activeOrdersLink);
                     },
                     child: new Container(
-                      height: 100.0,
-                      decoration: new BoxDecoration(
-                          borderRadius: new BorderRadius.circular(2.0),
-                          ),
-                      child: new Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          new Icon(
-                            Icons.web,
-                            color: Colors.white,
-                          ),
-                          new Text("Services",
-                              style: new TextStyle(color: Colors.white)),
-                        ],
-                      ),
+                        height: 100.0,
+                        decoration: new BoxDecoration(
+                            borderRadius: new BorderRadius.circular(3.0),
+                            ),
+                        child: new Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            new Icon(
+                              Icons.web,
+                              color: Colors.white,
+                            ),
+                            new Text("Services",
+                                style: new TextStyle(color: Colors.white)),
+                          ],
+                        ),
                     ),
-                  )),
+                  ),
+                      )),
                   new Expanded(
                       child: new Container(
                     height: 100.0,
                     child: Column(
                       children: <Widget>[
                         Expanded(
-                          child: FlatButton(
-                            padding:
-                                const EdgeInsets.only(bottom: 2.5, right: 2.5),
-                            onPressed: () { 
-                              _handleURLButtonPress(context, Links.invoiceLink);
-                             },
-                            child: new Container(
-                              decoration: new BoxDecoration(
-                                  color: Color(0XFF2BD093),
-                                  borderRadius: new BorderRadius.circular(5.0)),
-                              child: new Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 2.0),
-                                    child: new Icon(
-                                      Icons.money,
-                                      color: Colors.white,
+                          child: Padding(
+                            padding: const EdgeInsets.all(1.0),
+                            child: FlatButton(
+                              color: Colors.greenAccent,
+                              padding:
+                                  const EdgeInsets.only( right: 2.5),
+                              onPressed: () { 
+                                _handleURLButtonPress(context, Links.invoiceLink);
+                               },
+                              child: new Container(
+                                decoration: new BoxDecoration(
+                                    // color: Color(0XFF2BD093),
+                                    borderRadius: new BorderRadius.circular(5.0)),
+                                child: new Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 2.0),
+                                      child: new Icon(
+                                        Icons.money,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                  ),
-                                  new Text('Invoices',
-                                      style: new TextStyle(color: Colors.white))
-                                ],
+                                    new Text('Invoices',
+                                        style: new TextStyle(color: Colors.white))
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                         ),
                         Expanded(
-                          child: FlatButton(
-                            padding:
-                                const EdgeInsets.only(top: 2.5, right: 2.5),
-                            onPressed: () { 
-                              _handleURLButtonPress(context, Links.activeOrdersLink);
-                             },
-                            child: new Container(
-                              decoration: new BoxDecoration(
-                                  color: Color(0XFFFC7B4D),
-                                  borderRadius: new BorderRadius.circular(5.0)),
-                              child: new Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 8.0),
-                                    child: new Icon(
-                                      Icons.beenhere,
-                                      color: Colors.white,
+                          child: Padding(
+                            padding: const EdgeInsets.all(1.0),
+                            child: FlatButton(
+                              color: Colors.orange[700],
+                              padding:
+                                  const EdgeInsets.only(right: 2.5),
+                              onPressed: () { 
+                                _handleURLButtonPress(context, Links.activeOrdersLink);
+                               },
+                              child: new Container(
+                                decoration: new BoxDecoration(
+                                    // color: Color(0XFFFC7B4D),
+                                    borderRadius: new BorderRadius.circular(5.0)),
+                                child: new Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 2.0),
+                                      child: new Icon(
+                                        Icons.beenhere,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                  ),
-                                  new Text('Orders',
-                                      style: new TextStyle(color: Colors.white))
-                                ],
+                                    new Text('Orders',
+                                        style: new TextStyle(color: Colors.white))
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -126,52 +137,63 @@ class HomePortal2 extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         Expanded(
-                          child: FlatButton(
-                            padding:
-                                const EdgeInsets.only(left: 2.5, bottom: 2.5),
-                            onPressed: () { 
-
-                             },
-                            child: new Container(
-                              decoration: new BoxDecoration(
-                                  color: Color(0XFF53CEDB),
-                                  borderRadius: new BorderRadius.circular(5.0)),
-                              child: new Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 8.0),
-                                    child: new Icon(
-                                      Icons.chat,
-                                      color: Colors.white,
+                          child: Padding(
+                            padding: const EdgeInsets.all(1.0),
+                            child: FlatButton(
+                              color: Colors.blueAccent,
+                              padding:
+                                  const EdgeInsets.only(left: 2.5),
+                              onPressed: () { 
+                                _handleURLButtonPress(context, Links.supportLink);
+                               },
+                              child: new Container(
+                                decoration: new BoxDecoration(
+                                    // color: Color(0XFF53CEDB),
+                                    borderRadius: new BorderRadius.circular(5.0)),
+                                child: new Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 2.0),
+                                      child: new Icon(
+                                        Icons.chat,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                  ),
-                                  new Text('Ticket',
-                                      style: new TextStyle(color: Colors.white))
-                                ],
+                                    new Text('Ticket',
+                                        style: new TextStyle(color: Colors.white))
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 2.5, top: 2.5),
+                            padding: const EdgeInsets.only(left: 2.5),
                             child: new Container(
                               decoration: new BoxDecoration(
-                                  color: Color(0XFFF1B069),
+                                      color: Colors.redAccent,
+                                  // color: Color(0XFFF1B069),
                                   borderRadius: new BorderRadius.circular(5.0)),
                               child: new Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   Padding(
-                                    padding: const EdgeInsets.only(right: 8.0),
-                                    child: new Icon(
-                                      Icons.question_answer,
-                                      color: Colors.white,
+                                    padding: const EdgeInsets.all(1.0),
+                                    child: FlatButton(
+                                      padding: const EdgeInsets.only(right: 2.0),
+                                      onPressed: () { 
+                                        _handleURLButtonPress(context, Links.supportLink);
+                                       },
+                                      child: new Icon(
+                                        Icons.question_answer,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
                                   new Text('Help',
-                                      style: new TextStyle(color: Colors.white))
+                                      style: new TextStyle(color: Colors.white)),
                                 ],
                               ),
                             ),
