@@ -37,7 +37,7 @@ class Links {
   static var profileLink = CoreMain.mainLink + "/client/profile";
   static var fundsLink = CoreMain.mainLink + "/client/balance";
   static var logoutLink = CoreMain.mainLink + "/client/logout";
-  static var login = "https://clientzone.system32online.co.za/login";
+  static var login =  CoreMain.mainLink + "/login";
 }
 
 class EmbedIframes {

@@ -38,7 +38,7 @@ class LoginPortalState extends State<LoginPortal>{
   doneLoading(String A) {
     if (connectivityResult == ConnectivityResult.mobile ||
           connectivityResult == ConnectivityResult.wifi) {
-        if(A != Links.login && A == CoreMain.mainLink){
+        if(A != Links.login){
           Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(builder: (context) => new BottomNav()));
       }
       setState(() {

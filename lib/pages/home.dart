@@ -52,7 +52,7 @@ class HomePortal2 extends StatelessWidget {
                               Icons.web,
                               color: Colors.white,
                             ),
-                            new Text("Services",
+                            new Text("Active",
                                 style: new TextStyle(color: Colors.white)),
                           ],
                         ),
@@ -168,37 +168,37 @@ class HomePortal2 extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 2.5),
-                            child: new Container(
-                              decoration: new BoxDecoration(
-                                      color: Colors.redAccent,
-                                  // color: Color(0XFFF1B069),
-                                  borderRadius: new BorderRadius.circular(5.0)),
-                              child: new Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.all(1.0),
-                                    child: FlatButton(
-                                      padding: const EdgeInsets.only(right: 2.0),
-                                      onPressed: () { 
-                                        _handleURLButtonPress(context, Links.supportLink);
-                                       },
-                                      child: new Icon(
-                                        Icons.question_answer,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                  new Text('Help',
-                                      style: new TextStyle(color: Colors.white)),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
+                        // Expanded(
+                        //   child: Padding(
+                        //     padding: const EdgeInsets.only(left: 2.5),
+                        //     child: new Container(
+                        //       decoration: new BoxDecoration(
+                        //               color: Colors.redAccent,
+                        //           // color: Color(0XFFF1B069),
+                        //           borderRadius: new BorderRadius.circular(5.0)),
+                        //       child: new Row(
+                        //         mainAxisAlignment: MainAxisAlignment.center,
+                        //         children: <Widget>[
+                        //           Padding(
+                        //             padding: const EdgeInsets.all(1.0),
+                        //             child: FlatButton(
+                        //               padding: const EdgeInsets.only(right: 2.0),
+                        //               onPressed: () { 
+                        //                 _handleURLButtonPress(context, Links.supportLink);
+                        //                },
+                        //               child: new Icon(
+                        //                 Icons.question_answer,
+                        //                 color: Colors.white,
+                        //               ),
+                        //             ),
+                        //           ),
+                        //           new Text('Help',
+                        //               style: new TextStyle(color: Colors.white)),
+                        //         ],
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   )),

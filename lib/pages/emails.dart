@@ -25,7 +25,7 @@ class EmailsPortalState extends State<EmailsPortal>
   }
 
   startLoading(String A) {
-    if (!A.startsWith(Links.emailLink)) {
+    if (A != Links.emailLink) {
       Navigator.of(context, rootNavigator: true)
           .push(MaterialPageRoute(builder: (context) => new BottomNav()));
     }
