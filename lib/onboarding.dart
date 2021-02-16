@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:system32online_portal/helpers/helpSys.dart';
 import 'package:system32online_portal/helpers/style.dart';
+import 'package:system32online_portal/webview_container/webview_container.dart';
 
 class OnboardingPage extends StatefulWidget {
   @override
@@ -13,9 +14,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   void initState() {
-    _pageController = PageController(
-      initialPage: 0
-    );
+    _pageController = PageController(initialPage: 0);
     super.initState();
   }
 
@@ -33,13 +32,18 @@ class _OnboardingPageState extends State<OnboardingPage> {
         elevation: 0,
         backgroundColor: Colors.white,
         actions: <Widget>[
-          Padding(
+          FlatButton(
             padding: EdgeInsets.only(right: 20, top: 20),
-            child: Text('Skip', style: TextStyle(
-              color: ColorSys.gray,
-              fontSize: 18,
-              fontWeight: FontWeight.w400
-            ),),
+            onPressed: () {
+              _handleURLButtonPress(context, Links.profileLink);
+            },
+            child: Text(
+              'Skip',
+              style: TextStyle(
+                  color: ColorSys.gray,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400),
+            ),
           )
         ],
       ),
@@ -55,21 +59,18 @@ class _OnboardingPageState extends State<OnboardingPage> {
             controller: _pageController,
             children: <Widget>[
               makePage(
-                image: ImageAssets.onboardOne,
-                title: Strings.stepOneTitle,
-                content: Strings.stepOneContent
-              ),
+                  image: ImageAssets.onboardOne,
+                  title: Strings.stepOneTitle,
+                  content: Strings.stepOneContent),
               makePage(
-                reverse: true,
-                image: ImageAssets.onboardTwo,
-                title: Strings.stepTwoTitle,
-                content: Strings.stepTwoContent
-              ),
+                  reverse: true,
+                  image: ImageAssets.onboardTwo,
+                  title: Strings.stepTwoTitle,
+                  content: Strings.stepTwoContent),
               makePage(
-                image: ImageAssets.onboardThree,
-                title: Strings.stepThreeTitle,
-                content: Strings.stepThreeContent
-              ),
+                  image: ImageAssets.onboardThree,
+                  title: Strings.stepThreeTitle,
+                  content: Strings.stepThreeContent),
             ],
           ),
           Container(
@@ -90,37 +91,50 @@ class _OnboardingPageState extends State<OnboardingPage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          !reverse ? 
-          Column(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Image.asset(image),
-              ),
-              SizedBox(height: 30,),
-            ],
-          ) : SizedBox(),
-          Text(title, style: TextStyle(
-            color: ColorSys.primary,
-            fontSize: 30,
-            fontWeight: FontWeight.bold
-          ),),
-          SizedBox(height: 20,),
-          Text(content, textAlign: TextAlign.center, style: TextStyle(
-            color: ColorSys.gray,
-            fontSize: 20,
-            fontWeight: FontWeight.w400
-          ),),
-          reverse ? 
-          Column(
-            children: <Widget>[
-              SizedBox(height: 30,),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Image.asset(image),
-              ),
-            ],
-          ) : SizedBox(),
+          !reverse
+              ? Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Image.asset(image),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                  ],
+                )
+              : SizedBox(),
+          Text(
+            title,
+            style: TextStyle(
+                color: ColorSys.primary,
+                fontSize: 30,
+                fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            content,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: ColorSys.gray,
+                fontSize: 20,
+                fontWeight: FontWeight.w400),
+          ),
+          reverse
+              ? Column(
+                  children: <Widget>[
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Image.asset(image),
+                    ),
+                  ],
+                )
+              : SizedBox(),
         ],
       ),
     );
@@ -133,15 +147,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
       width: isActive ? 30 : 6,
       margin: EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
-        color: ColorSys.secoundry,
-        borderRadius: BorderRadius.circular(5)
-      ),
+          color: ColorSys.secoundry, borderRadius: BorderRadius.circular(5)),
     );
   }
 
   List<Widget> _buildIndicator() {
     List<Widget> indicators = [];
-    for (int i = 0; i<3; i++) {
+    for (int i = 0; i < 3; i++) {
       if (currentIndex == i) {
         indicators.add(_indicator(true));
       } else {
@@ -151,4 +163,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
     return indicators;
   }
+  _handleURLButtonPress(BuildContext context, String url) {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => WebViewContainer(url)));
+}
 }

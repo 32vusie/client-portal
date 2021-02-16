@@ -38,6 +38,7 @@ dependencies:
   async:
   logger:
   progress_dialog:
+  double_back_to_close_app:
   
 
 

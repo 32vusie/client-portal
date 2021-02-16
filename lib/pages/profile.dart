@@ -25,7 +25,7 @@ class ProfilePortalState extends State<ProfilePortal>{
   }
  
   startLoading(String A){
-    if(A != Links.profileLink){
+    if(A != Links.login){
         Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(builder: (context) => new LoginPortal()));
     }
   }

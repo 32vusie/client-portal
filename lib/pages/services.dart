@@ -18,16 +18,20 @@ class ServicePortal2State extends State<ServicePortal2>
   final key = UniqueKey();
 
   doneLoading(String A) {
-    setState(() {
+    if (A == Links.login) {
+      Navigator.of(context, rootNavigator: true)
+          .push(MaterialPageRoute(builder: (context) => new LoginPortal()));
+          setState(() {
       position = 0;
     });
+    }
+    
   }
 
   startLoading(String A) {
-    if (A != Links.orderLink) {
-      Navigator.of(context, rootNavigator: true)
-          .push(MaterialPageRoute(builder: (context) => new LoginPortal()));
-    }
+    setState(() {
+      position = 1;
+    });
   }
 
   @override
@@ -41,8 +45,8 @@ class ServicePortal2State extends State<ServicePortal2>
             initialUrl: Links.orderLink,
             javascriptMode: JavascriptMode.unrestricted,
             key: key,
-            onPageFinished: doneLoading,
             onPageStarted: startLoading,
+            onPageFinished: doneLoading,
           ),
           Container(
             color: Colors.white,
@@ -50,6 +54,7 @@ class ServicePortal2State extends State<ServicePortal2>
           ),
         ]));
   }
-   @override
+
+  @override
   bool get wantKeepAlive => true;
 }

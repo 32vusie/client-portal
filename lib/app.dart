@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: initScreen == 0 || initScreen == null ? "onboard" : "/",
         routes: {
-          '/': (context) => BottomNav(),
-          "second": (context) => LoginPortal(),
+          '/': (context) => LoginPortal(),
+          "second": (context) => BottomNav(),
           "onboard": (context) => OnboardingPage(),
           PageRoutes.shopping: (context) => ShoppingCartPage(),
           PageRoutes.networkCheck: (context) => NetworkPage(),

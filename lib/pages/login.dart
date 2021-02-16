@@ -36,19 +36,12 @@ class LoginPortalState extends State<LoginPortal>{
   //   }
  
   doneLoading(String A) {
-    if (connectivityResult == ConnectivityResult.mobile ||
-          connectivityResult == ConnectivityResult.wifi) {
-        if(A != Links.login){
-          Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(builder: (context) => new BottomNav()));
-      }
+   
       setState(() {
         position = 0;
       });
-      } else {
-        print("You are not connected");
+     
     }
-    
-  }
  
   startLoading(String A){
     if(A != Links.login){
