@@ -1,63 +1,40 @@
-import 'package:connectivity/connectivity.dart';
+import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
-import 'package:system32online_portal/helpers/helpSys.dart';
-import 'package:system32online_portal/navigations/drawer.dart';
-import 'package:system32online_portal/pages/login.dart';
-import 'package:system32online_portal/webview_container/webview_container.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:connectivity/connectivity.dart';
 
-class NetworkPage extends StatefulWidget {
-  static const String routeName = '/NetworkPage';
-  NetworkPageState createState() => NetworkPageState();
+var connectivityResult = await (Connectivity().checkConnectivity());
+
+await(Future<ConnectivityResult> checkConnectivity) {
 }
 
-class NetworkPageState extends State<NetworkPage> {
-  num position = 1;
-  Logger logger = Logger();
-  var connectivityResult = await(Connectivity().checkConnectivity());
-  final key = UniqueKey();
+class CheckConection extends State<CheckConection> {
+  
+  final Completer<WebViewController> _controller=Completer<WebViewController>();
 
-  doneLoading(String A) {
-    setState(() {
-      position = 0;
-    });
-  }
-
-  checkInternet() {
-    if (connectivityResult != ConnectivityResult.mobile ||
-        connectivityResult != ConnectivityResult.wifi) {
-      print("You are not connected");
-    } else {
-      print("you are connected");
-    }
-  }
-
-  startLoading(String A) {
-    checkInternet();
-    if (A != Links.orderLink) {
-      Navigator.of(context, rootNavigator: true)
-          .push(MaterialPageRoute(builder: (context) => new LoginPortal()));
-    }
-  }
-
+  
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-        appBar: AppBar(title: Text('Products')),
-        drawer: NavigationDrawer(),
-        body: IndexedStack(index: position, children: <Widget>[
-          WebView(
-            initialUrl: Links.orderLink,
-            javascriptMode: JavascriptMode.unrestricted,
-            key: key,
-            onPageFinished: doneLoading,
-            onPageStarted: startLoading,
-          ),
-          Container(
-            color: Colors.white,
-            child: Center(child: CircularProgressIndicator()),
-          ),
-        ]));
+      
+      body: WebView(
+        if (connectivityResult == ConnectivityResult.mobile) {
+  // I am connected to a mobile network.
+		} else if (connectivityResult == ConnectivityResult.wifi) {
+  // I am connected to a wifi network.
+
+        initialUrl: "https://google.com/",
+        onWebViewCreated: (WebViewController webViewController){
+          	_controller.complete(webViewController);
+        },}
+        else{
+          //i am not connected to any network
+        }
+      ) );
+       
+       
+    
   }
 }

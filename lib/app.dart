@@ -9,6 +9,7 @@ import 'package:system32online_portal/main.dart';
 import 'package:system32online_portal/navigations/bottomNavigation.dart';
 import 'package:system32online_portal/onboarding.dart';
 import 'package:system32online_portal/pages/login.dart';
+import 'package:system32online_portal/pages/testingRedirect.dart';
 import 'package:system32online_portal/routes/pageRoute.dart';
 
 class MyApp extends StatelessWidget {
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
           "second": (context) => LoginPortal(),
           "onboard": (context) => OnboardingPage(),
           PageRoutes.shopping: (context) => ShoppingCartPage(),
-          PageRoutes.networkCheck: (context) => NetworkPage(),
+          // PageRoutes.networkCheck: (context) => CheckConection(),
           PageRoutes.forum: (context) => ForumPage(),
           PageRoutes.wallet: (context) => FundsPage(),
           PageRoutes.support: (context) => SupportPage(),
