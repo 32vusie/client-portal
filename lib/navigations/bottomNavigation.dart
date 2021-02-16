@@ -77,7 +77,7 @@ class _BottomNavState extends State<BottomNav> {
       body: WillPopScope(
         onWillPop: onWillPop,
         child: _widgetOptions.elementAt(_selectedIndex),
-        )
+        ),
     );
   }
 
