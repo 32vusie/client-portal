@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
+DateTime backbuttonpressedTime;
 Future<bool> onWillPop() async {
-    return (await showDialog(
-      // context: context,
-      builder: (context) => new AlertDialog(
-        title: new Text('Are you sure?'),
-        content: new Text('Do you want to exit an App'),
-        actions: <Widget>[
-          new FlatButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: new Text('No'),
-          ),
-          new FlatButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            child: new Text('Yes'),
-          ),
-        ],
-      ), context: null,
-    )) ?? false;
+  DateTime currentTime = DateTime.now();
+
+  //bifbackbuttonhasnotbeenpreedOrToasthasbeenclosed
+  //Statement 1 Or statement2
+  bool backButton = backbuttonpressedTime == null ||
+      currentTime.difference(backbuttonpressedTime) > Duration(seconds: 3);
+
+  if (backButton) {
+    backbuttonpressedTime = currentTime;
+    Fluttertoast.showToast(
+        msg: "Double Click to exit app",
+        backgroundColor: Colors.black,
+        textColor: Colors.white);
+    return false;
+  }
+  return true;
 }

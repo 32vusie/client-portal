@@ -4,6 +4,7 @@ import 'package:system32online_portal/helpers/opertations.dart';
 import 'package:system32online_portal/helpers/helpSys.dart';
 import 'package:system32online_portal/navigations/bottomNavigation.dart';
 import 'package:system32online_portal/navigations/drawer.dart';
+import 'package:system32online_portal/pages/login.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class EmailsPortal extends StatefulWidget {
@@ -39,38 +40,32 @@ class EmailsPortalState extends State<EmailsPortal>
       @override
       Widget build(BuildContext context) {
         super.build(context);
-        return new WillPopScope(
-          onWillPop: onWillPop,
-            child: new Scaffold(
-              appBar: AppBar(title: Text('Emails')),
-              drawer: NavigationDrawer(),
-              body: IndexedStack(
-                index: position, 
-                children: <Widget>[
-                  WebView(
-                    initialUrl: Links.emailLink,
-                    javascriptMode: JavascriptMode.unrestricted,
-                    key: key,
-                    onPageStarted: startLoading,
-                    onPageFinished: doneLoading,
-                    // navigationDelegate: (action) {
-                    //   logger.i(action.url);
-                    //   if (action.url.startsWith(Links.emailLink)) {
-                    //     return NavigationDecision.navigate;
-                    //   } else {
-                    //     // pr.show();
-                    //     LoginPortal();
-                    //     return NavigationDecision.prevent;
-                    //   }
-                    // },
-                  ),
+        return Scaffold(
+            appBar: AppBar(title: Text('Emails')),
+            drawer: NavigationDrawer(),
+            body: IndexedStack(index: position, children: <Widget>[
+              WebView(
+                initialUrl: Links.emailLink,
+                javascriptMode: JavascriptMode.unrestricted,
+                key: key,
+                onPageStarted: startLoading,
+                onPageFinished: doneLoading,
+                // navigationDelegate: (action) {
+                //   logger.i(action.url);
+                //   if (action.url.startsWith(Links.emailLink)) {
+                //     return NavigationDecision.navigate;
+                //   } else {
+                //     // pr.show();
+                //     LoginPortal();
+                //     return NavigationDecision.prevent;
+                //   }
+                // },
+              ),
               Container(
                 color: Colors.white,
                 child: Center(child: CircularProgressIndicator()),
               ),
-            ])),
-        );
-          
+            ]));
       }
     
       bool get wantKeepAlive => true;

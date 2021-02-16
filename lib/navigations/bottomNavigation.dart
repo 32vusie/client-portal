@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:system32online_portal/helpers/opertations.dart';
 import 'package:system32online_portal/pages/home.dart';
 import 'package:system32online_portal/pages/cart.dart';
 import 'package:system32online_portal/pages/emails.dart';
@@ -73,7 +74,10 @@ class _BottomNavState extends State<BottomNav> {
           });
         },
       ),
-      body: _widgetOptions.elementAt(_selectedIndex),
+      body: WillPopScope(
+        onWillPop: onWillPop,
+        child: _widgetOptions.elementAt(_selectedIndex),
+        )
     );
   }
 
