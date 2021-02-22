@@ -18,21 +18,24 @@ class ServicePortal2State extends State<ServicePortal2>
   final key = UniqueKey();
 
   doneLoading(String A) {
-    if (A == Links.login) {
-      Navigator.of(context, rootNavigator: true)
-          .push(MaterialPageRoute(builder: (context) => new LoginPortal()));
-          setState(() {
+    setState(() {
       position = 0;
     });
-    }
-    
   }
 
   startLoading(String A) {
-    setState(() {
-      position = 1;
-    });
-  }
+    if (A == Links.login){
+          Navigator.of(context, rootNavigator: true)
+              .push(MaterialPageRoute(builder: (context) => new LoginPortal()));
+              
+        }
+    
+        // checkPageLink(A);
+        setState(() {
+          position = 1;
+        });
+      }
+    
 
   @override
   Widget build(BuildContext context) {
