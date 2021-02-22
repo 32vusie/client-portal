@@ -1,40 +1,66 @@
-import 'dart:async';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'dart:io'; //InternetAddress utility
+import 'dart:async'; //For StreamController/Stream
+
 import 'package:connectivity/connectivity.dart';
 
-var connectivityResult = await (Connectivity().checkConnectivity());
+class ConnectionStatusSingleton {
+    //This creates the single instance by calling the `_internal` constructor specified below
+    static final ConnectionStatusSingleton _singleton = new ConnectionStatusSingleton._internal();
+    ConnectionStatusSingleton._internal();
 
-await(Future<ConnectivityResult> checkConnectivity) {
-}
+    //This is what's used to retrieve the instance through the app
+    static ConnectionStatusSingleton getInstance() => _singleton;
 
-class CheckConection extends State<CheckConection> {
-  
-  final Completer<WebViewController> _controller=Completer<WebViewController>();
+    //This tracks the current connection status
+    bool hasConnection = false;
 
-  
-  @override
-  Widget build(BuildContext context) {
+    //This is how we'll allow subscribing to connection changes
+    StreamController connectionChangeController = new StreamController.broadcast();
 
-    return Scaffold(
-      
-      body: WebView(
-        if (connectivityResult == ConnectivityResult.mobile) {
-  // I am connected to a mobile network.
-		} else if (connectivityResult == ConnectivityResult.wifi) {
-  // I am connected to a wifi network.
+    //flutter_connectivity
+    final Connectivity _connectivity = Connectivity();
 
-        initialUrl: "https://google.com/",
-        onWebViewCreated: (WebViewController webViewController){
-          	_controller.complete(webViewController);
-        },}
-        else{
-          //i am not connected to any network
+    //Hook into flutter_connectivity's Stream to listen for changes
+    //And check the connection status out of the gate
+    void initialize() {
+        _connectivity.onConnectivityChanged.listen(_connectionChange);
+        checkConnection();
+    }
+
+    Stream get connectionChange => connectionChangeController.stream;
+
+    //A clean up method to close our StreamController
+    //   Because this is meant to exist through the entire application life cycle this isn't
+    //   really an issue
+    void dispose() {
+        connectionChangeController.close();
+    }
+
+    //flutter_connectivity's listener
+    void _connectionChange(ConnectivityResult result) {
+        checkConnection();
+    }
+
+    //The test to actually see if there is a connection
+    Future<bool> checkConnection() async {
+        bool previousConnection = hasConnection;
+
+        try {
+            final result = await InternetAddress.lookup('google.com');
+            if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+                hasConnection = true;
+            } else {
+                hasConnection = false;
+            }
+        } on SocketException catch(_) {
+            hasConnection = false;
         }
-      ) );
-       
-       
-    
-  }
+
+        //The connection status changed send out an update to all listeners
+        if (previousConnection != hasConnection) {
+            connectionChangeController.add(hasConnection);
+        }
+
+        return hasConnection;
+    }
 }

@@ -54,44 +54,46 @@ class LoginPortalState extends State<LoginPortal>{
  
   @override
   Widget build(BuildContext context) {
-  return Scaffold(
-    // appBar: AppBar(
-      // title: Text('Cart')
-      // backgroundColor: Colors.white,
-    // ),
-        // drawer: NavigationDrawer(),
-      body: IndexedStack(
-        index: position,
-        children: <Widget>[
-          WebView(
-            initialUrl: Links.login,
-            javascriptMode: JavascriptMode.unrestricted,
-            onWebViewCreated: (WebViewController webcontroller){
-                _controller.complete(webcontroller);
-             },
-            key: key ,
-            onPageStarted: startLoading,
+  return Container(
+    child: Scaffold(
+      // appBar: AppBar(
+        // title: Text('Cart')
+        // backgroundColor: Colors.white,
+      // ),
+          // drawer: NavigationDrawer(),
+        body: IndexedStack(
+          index: position,
+          children: <Widget>[
+            WebView(
+              initialUrl: Links.login,
+              javascriptMode: JavascriptMode.unrestricted,
+              onWebViewCreated: (WebViewController webcontroller){
+                  _controller.complete(webcontroller);
+               },
+              key: key ,
+              onPageStarted: startLoading,
 
-            
-            onPageFinished: doneLoading,
-            //  navigationDelegate: (action) {
-            //   logger.i(action.url);
-            //   if (action.url == Links.login) {
-            //     return NavigationDecision.navigate;
-            //   } else {
-            //     return NavigationDecision.prevent;
-            //   }
-               
-            // },
-            
-          ),
-          // Container(
-          //   color: Colors.white,
-          //   child: Center(
-          //     child: CircularProgressIndicator()),
-          // ),
-        ]
-      )
-    );
+              
+              onPageFinished: doneLoading,
+              //  navigationDelegate: (action) {
+              //   logger.i(action.url);
+              //   if (action.url == Links.login) {
+              //     return NavigationDecision.navigate;
+              //   } else {
+              //     return NavigationDecision.prevent;
+              //   }
+                 
+              // },
+              
+            ),
+            // Container(
+            //   color: Colors.white,
+            //   child: Center(
+            //     child: CircularProgressIndicator()),
+            // ),
+          ]
+        )
+      ),
+  );
   }
 }

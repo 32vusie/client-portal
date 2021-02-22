@@ -40,32 +40,34 @@ class EmailsPortalState extends State<EmailsPortal>
       @override
       Widget build(BuildContext context) {
         super.build(context);
-        return Scaffold(
-            appBar: AppBar(title: Text('Emails')),
-            drawer: NavigationDrawer(),
-            body: IndexedStack(index: position, children: <Widget>[
-              WebView(
-                initialUrl: Links.emailLink,
-                javascriptMode: JavascriptMode.unrestricted,
-                key: key,
-                onPageStarted: startLoading,
-                onPageFinished: doneLoading,
-                // navigationDelegate: (action) {
-                //   logger.i(action.url);
-                //   if (action.url.startsWith(Links.emailLink)) {
-                //     return NavigationDecision.navigate;
-                //   } else {
-                //     // pr.show();
-                //     LoginPortal();
-                //     return NavigationDecision.prevent;
-                //   }
-                // },
-              ),
-              Container(
-                color: Colors.white,
-                child: Center(child: CircularProgressIndicator()),
-              ),
-            ]));
+        return Container(
+          child: Scaffold(
+              appBar: AppBar(title: Text('Emails')),
+              drawer: NavigationDrawer(),
+              body: IndexedStack(index: position, children: <Widget>[
+                WebView(
+                  initialUrl: Links.emailLink,
+                  javascriptMode: JavascriptMode.unrestricted,
+                  key: key,
+                  onPageStarted: startLoading,
+                  onPageFinished: doneLoading,
+                  // navigationDelegate: (action) {
+                  //   logger.i(action.url);
+                  //   if (action.url.startsWith(Links.emailLink)) {
+                  //     return NavigationDecision.navigate;
+                  //   } else {
+                  //     // pr.show();
+                  //     LoginPortal();
+                  //     return NavigationDecision.prevent;
+                  //   }
+                  // },
+                ),
+                Container(
+                  color: Colors.white,
+                  child: Center(child: CircularProgressIndicator()),
+                ),
+              ])),
+        );
       }
     
       bool get wantKeepAlive => true;

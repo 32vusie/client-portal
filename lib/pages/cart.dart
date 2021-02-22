@@ -6,6 +6,9 @@ import 'package:system32online_portal/pages/login.dart';
 import 'package:webview_flutter/webview_flutter.dart';
  
  
+
+
+
 class CartPortal extends StatefulWidget {
  
   CartPortalState createState() => CartPortalState();
@@ -33,29 +36,31 @@ class CartPortalState extends State<CartPortal>{
  
   @override
   Widget build(BuildContext context) {
-  return Scaffold(
-     appBar: AppBar(
-        title: Text('Cart')),
-        drawer: NavigationDrawer(),
-      body: IndexedStack(
-      index: position,
-      children: <Widget>[
+  return Container(
+    child: Scaffold(
+       appBar: AppBar(
+          title: Text('Cart')),
+          drawer: NavigationDrawer(),
+        body: IndexedStack(
+        index: position,
+        children: <Widget>[
  
-      WebView(
-        initialUrl: Links.cartLink,
-        javascriptMode: JavascriptMode.unrestricted,
-        key: key ,
-        onPageFinished: doneLoading,
-        onPageStarted: startLoading,
-        ),
+        WebView(
+          initialUrl: Links.cartLink,
+          javascriptMode: JavascriptMode.unrestricted,
+          key: key ,
+          onPageFinished: doneLoading,
+          onPageStarted: startLoading,
+          ),
  
-       Container(
-        color: Colors.white,
-        child: Center(
-          child: CircularProgressIndicator()),
-        ),
-        
-      ])
+         Container(
+          color: Colors.white,
+          child: Center(
+            child: CircularProgressIndicator()),
+          ),
+          
+        ])
+    ),
   );
   }
 }

@@ -32,29 +32,31 @@ class ProfilePortalState extends State<ProfilePortal>{
  
   @override
   Widget build(BuildContext context) {
-  return Scaffold(
-     appBar: AppBar(
-        title: Text('Profile')),
-        drawer: NavigationDrawer(),
-      body: IndexedStack(
-      index: position,
-      children: <Widget>[
+  return Container(
+    child: Scaffold(
+       appBar: AppBar(
+          title: Text('Profile')),
+          drawer: NavigationDrawer(),
+        body: IndexedStack(
+        index: position,
+        children: <Widget>[
  
-      WebView(
-        initialUrl: Links.profileLink,
-        javascriptMode: JavascriptMode.unrestricted,
-        key: key ,
-        onPageFinished: doneLoading,
-        onPageStarted: startLoading,
-        ),
+        WebView(
+          initialUrl: Links.profileLink,
+          javascriptMode: JavascriptMode.unrestricted,
+          key: key ,
+          onPageFinished: doneLoading,
+          onPageStarted: startLoading,
+          ),
  
-       Container(
-        color: Colors.white,
-        child: Center(
-          child: CircularProgressIndicator()),
-        ),
-        
-      ])
+         Container(
+          color: Colors.white,
+          child: Center(
+            child: CircularProgressIndicator()),
+          ),
+          
+        ])
+    ),
   );
   }
 }

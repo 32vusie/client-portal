@@ -37,22 +37,24 @@ class ServicePortal2State extends State<ServicePortal2>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Scaffold(
-        appBar: AppBar(title: Text('Products')),
-        drawer: NavigationDrawer(),
-        body: IndexedStack(index: position, children: <Widget>[
-          WebView(
-            initialUrl: Links.orderLink,
-            javascriptMode: JavascriptMode.unrestricted,
-            key: key,
-            onPageStarted: startLoading,
-            onPageFinished: doneLoading,
-          ),
-          Container(
-            color: Colors.white,
-            child: Center(child: CircularProgressIndicator()),
-          ),
-        ]));
+    return Container(
+      child: Scaffold(
+          appBar: AppBar(title: Text('Products')),
+          drawer: NavigationDrawer(),
+          body: IndexedStack(index: position, children: <Widget>[
+            WebView(
+              initialUrl: Links.orderLink,
+              javascriptMode: JavascriptMode.unrestricted,
+              key: key,
+              onPageStarted: startLoading,
+              onPageFinished: doneLoading,
+            ),
+            Container(
+              color: Colors.white,
+              child: Center(child: CircularProgressIndicator()),
+            ),
+          ])),
+    );
   }
 
   @override

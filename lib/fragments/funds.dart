@@ -15,8 +15,8 @@ class FundsPage extends StatelessWidget {
           title: Text("wallet"),
         ),
         drawer: NavigationDrawer(),
-        bottomNavigationBar: BottomNav(),
         body: ServicesPortal(),
+        bottomNavigationBar: BottomNav(),
     );
   }
 }
