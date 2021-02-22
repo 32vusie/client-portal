@@ -196,6 +196,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  fluttertoast:
+    dependency: "direct main"
+    description:
+      name: fluttertoast
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "7.1.6"
   fuchsia_remote_debug_protocol:
     dependency: transitive
     description: flutter
@@ -262,6 +269,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.0-nullsafety.6"
+  minimize_app:
+    dependency: "direct main"
+    description:
+      name: minimize_app
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1"
   node_interop:
     dependency: transitive
     description:

@@ -38,6 +38,8 @@ dependencies:
   async:
   logger:
   progress_dialog:
+  fluttertoast:
+  minimize_app:
   
 
 
