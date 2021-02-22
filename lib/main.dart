@@ -6,9 +6,8 @@ import 'app.dart';
 int initScreen;
 
 Future<void> main() async {
-  // ConnectionStatusSingleton connectionStatus = ConnectionStatusSingleton.getInstance();
-  // connectionStatus.initialize();
-  CheckNetwork();
+  ConnectionStatusSingleton connectionStatus = ConnectionStatusSingleton.getInstance();
+  connectionStatus.initialize();
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   initScreen = prefs.getInt("initScreen");

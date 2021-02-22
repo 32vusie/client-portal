@@ -9,7 +9,7 @@ import 'package:system32online_portal/main.dart';
 import 'package:system32online_portal/navigations/bottomNavigation.dart';
 import 'package:system32online_portal/onboarding.dart';
 import 'package:system32online_portal/pages/login.dart';
-import 'package:system32online_portal/pages/noNetwork.dart';
+import 'package:system32online_portal/pages/testingRedirect.dart';
 import 'package:system32online_portal/routes/pageRoute.dart';
 
 class MyApp extends StatelessWidget {
