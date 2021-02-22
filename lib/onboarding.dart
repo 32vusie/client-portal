@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:system32online_portal/helpers/helpSys.dart';
 import 'package:system32online_portal/helpers/style.dart';
+import 'package:system32online_portal/pages/login.dart';
 import 'package:system32online_portal/webview_container/webview_container.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -35,7 +36,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
           FlatButton(
             padding: EdgeInsets.only(right: 20, top: 20),
             onPressed: () {
-              _handleURLButtonPress(context, Links.profileLink);
+              Navigator.of(context, rootNavigator: true)
+              .push(MaterialPageRoute(builder: (context) => new LoginPortal()));
             },
             child: Text(
               'Skip',
@@ -163,8 +165,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
     return indicators;
   }
-  _handleURLButtonPress(BuildContext context, String url) {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => WebViewContainer(url)));
-}
+//   _handleURLButtonPress(BuildContext context, String url) {
+//     Navigator.push(context,
+//         MaterialPageRoute(builder: (context) => WebViewContainer(url)));
+// }
 }
