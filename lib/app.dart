@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:system32online_portal/fragments/networkCheck.dart';
 import 'package:system32online_portal/fragments/forum.dart';
 import 'package:system32online_portal/fragments/funds.dart';
 import 'package:system32online_portal/fragments/shoppig_cart.dart';
@@ -9,7 +8,6 @@ import 'package:system32online_portal/main.dart';
 import 'package:system32online_portal/navigations/bottomNavigation.dart';
 import 'package:system32online_portal/onboarding.dart';
 import 'package:system32online_portal/pages/login.dart';
-import 'package:system32online_portal/pages/noNetwork.dart';
 import 'package:system32online_portal/routes/pageRoute.dart';
 
 class MyApp extends StatelessWidget {

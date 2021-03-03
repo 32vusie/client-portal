@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+
 
 class CoreMain {
   static var mainLink = "https://clientzone.system32online.co.za/";

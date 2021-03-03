@@ -1,4 +1,3 @@
-import 'package:system32online_portal/fragments/networkCheck.dart';
 import 'package:system32online_portal/fragments/forum.dart';
 import 'package:system32online_portal/fragments/funds.dart';
 import 'package:system32online_portal/fragments/shoppig_cart.dart';

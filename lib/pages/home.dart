@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:system32online_portal/helpers/helpSys.dart';
-import 'package:system32online_portal/pages/services.dart';
 import 'package:system32online_portal/webview_container/webview_container.dart';
 
 class HomePortal2 extends StatelessWidget {
@@ -34,6 +33,7 @@ class HomePortal2 extends StatelessWidget {
                     new Expanded(
                         child: Padding(
                           padding: const EdgeInsets.all(1.0),
+                          // ignore: deprecated_member_use
                           child: FlatButton(
                       padding: const EdgeInsets.only(right: 5.0),
                       
@@ -68,6 +68,7 @@ class HomePortal2 extends StatelessWidget {
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.all(1.0),
+                              // ignore: deprecated_member_use
                               child: FlatButton(
                                 color: Colors.greenAccent,
                                 padding:
@@ -100,6 +101,7 @@ class HomePortal2 extends StatelessWidget {
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.all(1.0),
+                              // ignore: deprecated_member_use
                               child: FlatButton(
                                 color: Colors.orange[700],
                                 padding:
@@ -140,6 +142,7 @@ class HomePortal2 extends StatelessWidget {
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.all(1.0),
+                              // ignore: deprecated_member_use
                               child: FlatButton(
                                 color: Colors.blueAccent,
                                 padding:

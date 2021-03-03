@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:system32online_portal/helpers/helpSys.dart';
-import 'package:system32online_portal/navigations/bottomNavigation.dart';
 import 'package:system32online_portal/navigations/drawer.dart';
 import 'package:system32online_portal/pages/login.dart';
 import 'package:webview_flutter/webview_flutter.dart';

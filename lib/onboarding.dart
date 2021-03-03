@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:system32online_portal/helpers/helpSys.dart';
 import 'package:system32online_portal/helpers/style.dart';
 import 'package:system32online_portal/pages/login.dart';
-import 'package:system32online_portal/webview_container/webview_container.dart';
 
 class OnboardingPage extends StatefulWidget {
   @override
@@ -33,6 +32,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         elevation: 0,
         backgroundColor: Colors.white,
         actions: <Widget>[
+          // ignore: deprecated_member_use
           FlatButton(
             padding: EdgeInsets.only(right: 20, top: 20),
             onPressed: () {

@@ -1,11 +1,8 @@
 import 'dart:async';
-import 'package:flutter/foundation.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:system32online_portal/helpers/helpSys.dart';
-import 'package:system32online_portal/navigations/bottomNavigation.dart';
 import 'package:system32online_portal/pages/login.dart';
-import 'package:system32online_portal/pages/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 var connectivityResult = await(Connectivity().checkConnectivity());
